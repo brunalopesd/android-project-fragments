@@ -36,7 +36,6 @@ public class FirstFragment extends Fragment {
         EditText edtEmail = getActivity().findViewById(R.id.edtEmail);
         contato.setNome(edtNome.getText().toString());
         contato.setEmail(edtEmail.getText().toString());
-
     }
 
 }

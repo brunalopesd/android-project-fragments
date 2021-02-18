@@ -1,5 +1,6 @@
 package brunalopes.contactapp.view;
 
+import android.util.Log;
 import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;

@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import brunalopes.contactapp.model.Contato;
+
 import brunalopes.contactapp.view.FirstFragment;
 import brunalopes.contactapp.view.SecondFragment;
 import brunalopes.contactapp.view.ThirdFragment;
@@ -109,23 +110,22 @@ public class MainActivity extends AppCompatActivity {
 
     private void dadosDoContato(Contato contato) {
         EditText edtNome = findViewById(R.id.edtNome);
-        EditText edtEmail = findViewById(R.id.edtEmail);
-        EditText edtTelefone = findViewById(R.id.edtTelefone);
-        EditText edtEndereco = findViewById(R.id.edtEndereco);
-        EditText edtTrabalho = findViewById(R.id.edtTrabalho);
-
         contato.setNome(validaCampos(edtNome));
+        EditText edtEmail = findViewById(R.id.edtEmail);
         contato.setEmail(validaCampos(edtEmail));
+        EditText edtTelefone = findViewById(R.id.edtTelefone);
         contato.setTelefone(validaCampos(edtTelefone));
+        EditText edtEndereco = findViewById(R.id.edtEndereco);
         contato.setEndereco(validaCampos(edtEndereco));
+        EditText edtTrabalho = findViewById(R.id.edtTrabalho);
         contato.setTrabalho(validaCampos(edtTrabalho));
     }
 
-    private String validaCampos(EditText editText) {
-        if (editText == null){
+    private String validaCampos(EditText texto) {
+        if (texto == null){
             return "";
         }
-        return editText.getText().toString();
+        return texto.getText().toString();
     }
 
 }
