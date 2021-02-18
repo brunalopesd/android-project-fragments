@@ -25,18 +25,11 @@ public class MainActivity extends AppCompatActivity {
 
     Contato contato = new Contato();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Button btSalvar = findViewById(R.id.btSalvar);
-        btSalvar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                salvarContato(contato);
-            }
-        });
 
         Button btProximo = findViewById(R.id.btProximo);
         btProximo.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         irParaFragmento(index);
     }
+
 
     public void ProximoFragmento() {
         index++;
@@ -87,6 +81,12 @@ public class MainActivity extends AppCompatActivity {
             case 2:
                 fragment = new ThirdFragment(contato);
                 Log.d("main activity", "Fragmento tres");
+                Button btSalvar = findViewById(R.id.btSalvar);
+                btSalvar.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        salvarContato(contato);
+                    }
+                });
                 break;
         }
         FragmentManager fm = getSupportFragmentManager();
@@ -110,23 +110,26 @@ public class MainActivity extends AppCompatActivity {
 
     private void dadosDoContato(Contato contato) {
         EditText edtNome = findViewById(R.id.edtNome);
-        contato.setNome(validaCampos(edtNome));
-        EditText edtEmail = findViewById(R.id.edtEmail);
-        contato.setEmail(validaCampos(edtEmail));
-        EditText edtTelefone = findViewById(R.id.edtTelefone);
-        contato.setTelefone(validaCampos(edtTelefone));
-        EditText edtEndereco = findViewById(R.id.edtEndereco);
-        contato.setEndereco(validaCampos(edtEndereco));
-        EditText edtTrabalho = findViewById(R.id.edtTrabalho);
-        contato.setTrabalho(validaCampos(edtTrabalho));
-    }
-
-    private String validaCampos(EditText texto) {
-        if (texto == null){
-            return "";
+        if (edtNome != null) {
+            contato.setNome(edtNome.getText().toString());
         }
-        return texto.getText().toString();
-    }
 
+        EditText edtEmail = findViewById(R.id.edtEmail);
+        if (edtEmail != null) {
+            contato.setEmail(edtEmail.getText().toString());
+        }
+        EditText edtTelefone = findViewById(R.id.edtTelefone);
+        if (edtTelefone != null) {
+            contato.setTelefone(edtTelefone.getText().toString());
+        }
+        EditText edtEndereco = findViewById(R.id.edtEndereco);
+        if (edtEndereco != null) {
+            contato.setEmail(edtEndereco.getText().toString());
+        }
+        EditText edtTrabalho = findViewById(R.id.edtTrabalho);
+        if (edtTrabalho != null) {
+            contato.setTrabalho(edtTrabalho.getText().toString());
+        }
+    }
 }
 

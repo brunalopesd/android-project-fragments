@@ -1,7 +1,5 @@
 package brunalopes.contactapp.model;
 
-import android.provider.ContactsContract;
-
 public class Contato {
 
     String nome;
